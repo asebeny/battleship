@@ -81,10 +81,10 @@ while play =='y':
     print_board(board)
     # Hiding the first part of the ship
     def random_row(board):
-      return random.randint(0,len(board))
+      return random.randint(1,len(board))
 
     def random_col(board):
-      return random.randint(0,len(board[0]))
+      return random.randint(1,len(board[0]))
 
     ship_row = random_row(board)
     ship_col_1 = random_col(board)
@@ -92,7 +92,6 @@ while play =='y':
     # Creating the other parts of the ship, checking if they are next to each other and making sure that they stay on the board.
 
     def second_part(board):
-
         if ship_col_1 == len(board):
             return ship_col_1 - 1
         if ship_col_1 == 1:
@@ -118,20 +117,18 @@ while play =='y':
     def fourth_r(board):
         if ship_row == 1:
             return 2
-        if ship_row == len(board):
-            return len(board)-1
         else:
             return ship_row-1
 
     def fourth_c(board):
         return max(ship_col_1,ship_col_2,ship_col_3) # picking the highest value 
 
-    ship_row_2 = fourth_r(board)
-    fourth_col = fourth_c(board)
+    ship_row_2 = fourth_r(board)+1
+    fourth_col = fourth_c(board)+1
 
 
     def titanic(board):
-        return random.randint(0,len(board)-1)
+        return random.randint(1,len(board))
 
     titanic_r1 = titanic(board)
 
@@ -144,9 +141,9 @@ while play =='y':
                        d==ship_col_2 and ship_row==titanic_r1 or \
                        d==ship_col_3 and ship_row==titanic_r1 or \
                        d==fourth_col and ship_row_2==titanic_r1) or \
-                       d==len(board)-1 and (ship_col_1 == len(board)-2 or ship_col_2 == len(board)-2 or ship_col_3 == len(board)-2 or fourth_col == len(board)-2) or \
-                       d == 0 and (ship_col_1 == 1 or ship_col_2 == 1 or ship_col_3 == 1):
-            d = random.randint(0,len(board))
+                       d==len(board) and (ship_col_1 == len(board)-1 or ship_col_2 == len(board)-1 or ship_col_3 == len(board)-1 or fourth_col == len(board)-1) or \
+                       d == 1 and (ship_col_1 == 2 or ship_col_2 == 2 or ship_col_3 == 2):
+            d = random.randint(1,len(board))
         return d
 
     titanic_c1 = titanic_col_1(board)
@@ -154,7 +151,7 @@ while play =='y':
     def titanic_col_2(board):
         if titanic_c1 ==len(board):
             return titanic_c1-1
-        elif titanic_c1 == 0:
+        elif titanic_c1 == 1:
             return  titanic_c1+1
         elif titanic_c1+1 == ship_col_1 or\
              titanic_c1+1 == ship_col_2 or\
@@ -191,14 +188,14 @@ while play =='y':
 
     print len(board)
     print 
-    print ship_row
-    print ship_col_1
-    print ship_col_2
-    print ship_row_2
-    print titanic_r1
-    print titanic_c1
-    print titanic_c2
-    print ship_col_3
+    print 'ship_row',ship_row
+    print 'ship_col_1',ship_col_1
+    print 'ship_col_2',ship_col_2
+    print 'ship_row_2',ship_row_2
+    print 'titanic_r1',titanic_r1
+    print 'titanic_c1',titanic_c1
+    print 'titanic_c2',titanic_c2
+    print 'ship_col_3',ship_col_3
 
     while tries > 0:
 
@@ -244,12 +241,12 @@ while play =='y':
       if guess_row.isdigit() == False or guess_col.isdigit() == False:     # accepting only numeral entries. .isdigit() returns a True if a string contains a integer
           print 'Misfire ey?'
 
-      elif (int(guess_row)-1 == ship_row and int(guess_col)-1 == ship_col_1)or \
-           (int(guess_row)-1 == ship_row and int(guess_col)-1 == ship_col_2)or \
-           (int(guess_row)-1 == ship_row and int(guess_col)-1 == ship_col_3)or \
-           (int(guess_row)-1 == ship_row_2 and int(guess_col)-1 == fourth_col)or \
-           (int(guess_row)-1 == titanic_r1 and int(guess_col)-1 == titanic_c1) or\
-           (int(guess_row)-1 == titanic_r1 and int(guess_col)-1 == titanic_c2):     #  if either of the parts of the ship is hit, you won
+      elif (int(guess_row)-1 == ship_row-1 and int(guess_col)-1 == ship_col_1-1)or \
+           (int(guess_row)-1 == ship_row-1 and int(guess_col)-1 == ship_col_2-1)or \
+           (int(guess_row)-1 == ship_row-1 and int(guess_col)-1 == ship_col_3-1)or \
+           (int(guess_row)-1 == ship_row_2-1 and int(guess_col)-1 == fourth_col-1)or \
+           (int(guess_row)-1 == titanic_r1-1 and int(guess_col)-1 == titanic_c1-1) or\
+           (int(guess_row)-1 == titanic_r1-1 and int(guess_col)-1 == titanic_c2-1):     #  if either of the parts of the ship is hit, you won
         if (tries%2==0 or tries%2!=0) and multi ==1:
             print "Congratulations, You sunk my battleship!!"
             print
@@ -275,7 +272,7 @@ while play =='y':
         board[ship_row_2-1][fourth_col-1] = "O "
         board[titanic_r1-1][titanic_c1-1] = "o "
         board[titanic_r1-1][titanic_c2-1] = "o "
-        board[guess_row-1][guess_col-1]='* '   # the part of the ship you hit, will be displayed with a *
+        board[guess_row][guess_col]='* '   # the part of the ship you hit, will be displayed with a *
         print_board(board)
         break
       else:
