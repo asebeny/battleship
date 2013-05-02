@@ -4,7 +4,18 @@
 play ="y"
 while play =='y':
     import random
-    print "Welcome to Battlesip IV!"
+    import time
+    print "Welcome to.."
+    time.sleep(1)
+    print '''
+        
+        ,-----.            ,--.    ,--.  ,--.              ,--.     ,--.           ,--.,--.   ,--.  
+        |  |) /_  ,--,--.,-'  '-.,-'  '-.|  | ,---.  ,---. |  ,---. `--' ,---.     |  | \  `.'  /   
+        |  .-.  \' ,-.  |'-.  .-''-.  .-'|  || .-. :(  .-' |  .-.  |,--.| .-. |    |  |  \     /    
+        |  '--' /\ '-'  |  |  |    |  |  |  |\   --..-'  `)|  | |  ||  || '-' '    |  |   \   /.--. 
+        `------'  `--`--'  `--'    `--'  `--' `----'`----' `--' `--'`--'|  |-'     `--'    `-' '--' 
+                                                                        `--'
+        '''                                                        
     print
     # this is the multiplayer part option of the game
     # first i created a variable multi (it's value can be whatever except 1 or 2)
@@ -13,7 +24,7 @@ while play =='y':
     multi ="a"
     mp=['1','2','3']
     while multi not in mp:
-        multi = raw_input("single (1) - multiplayer (2) - AI (3) ")
+        multi = raw_input("SINGLE (1) - 2 PLAYERS (2) - AI (3) ")
     multi = int(multi)
     print   
     if multi == 2:
@@ -164,11 +175,7 @@ while play =='y':
     titanic_c2 = titanic_col_2(board)
     tries = 6  # "tries" will track how many turns you have left
     if multi ==1 and difficulty==1:
-        tries = 1
-    if multi ==1 and difficulty==2:
-        tries = 8
-    if multi ==1 and difficulty==1:
-        tries = 1
+        tries = 6
     if multi ==1 and difficulty==2:
         tries = 8
     if multi ==1 and difficulty==3:
