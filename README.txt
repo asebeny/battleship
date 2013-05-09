@@ -13,5 +13,5 @@ Upgrades include:
 5, Two ships
 6, Larger ships (4 tiles and 2 tiles)
 7, Numbered grid of the ocean
-8, Difficulty levels (change the board size and the number of tries)
+8, Difficulty levels (changing the board size and the number of tries)
 
