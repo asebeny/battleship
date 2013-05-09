@@ -287,7 +287,7 @@ while play =='y':
         guess_col = int(guess_col)-1
         if guess_row < 0 or guess_row > len(board)-1 or guess_col < 0 or guess_col > len(board)-1:
           print "Oops, that's not even in the ocean."
-        elif(board[guess_row][guess_col] == "X") or(board[guess_row][guess_col] == "@ "):
+        elif(board[guess_row][guess_col] == "X ") or(board[guess_row][guess_col] == "@ "):
           print "You guessed that one already."          
         else:
           print "You missed my battleship!"
@@ -307,8 +307,10 @@ while play =='y':
               board[guess_row][guess_col] = "X "
           if tries%2!=0  and multi==1:
               board[guess_row][guess_col] = "X "
-          print_board(board)
+          
           tries = tries - 1
+          if tries>0:
+              print 'You have',tries/2,'more left!'
           if  tries < 1:
               # printing the position of the ship, in case you loose
               board[ship_row-1][ship_col_1-1] = "O "
@@ -322,7 +324,9 @@ while play =='y':
               print '-----------------'
               print "-= Game Over!! =-"
               print '-----------------'
+              print
               break
+          print_board(board)
     # here we can choose to continue, or finishing the game by breaking the loop, with anything else then a 'y'  
     play = raw_input('Do you want to play again? press "y" for yes: ')
 
