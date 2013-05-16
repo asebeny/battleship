@@ -152,7 +152,9 @@ while play =='y':
                        d==ship_col_2 and ship_row==titanic_r1 or \
                        d==ship_col_3 and ship_row==titanic_r1 or \
                        d==fourth_col and ship_row_2==titanic_r1) or \
-                       d==len(board) and (ship_col_1 == len(board)-1 or ship_col_2 == len(board)-1 or ship_col_3 == len(board)-1 or fourth_col == len(board)-1) or \
+                       d==len(board) and (ship_col_1 == len(board)-1 or \
+                       ship_col_2 == len(board)-1 or ship_col_3 == len(board)-1 or \
+                       fourth_col == len(board)-1) or \
                        d == 1 and (ship_col_1 == 2 or ship_col_2 == 2 or ship_col_3 == 2):
             d = random.randint(1,len(board))
         return d
