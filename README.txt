@@ -2,7 +2,7 @@ Project Battleship IV
 ==========
 basic programming in python
 
-This is an extended version of the Codeacademy exercise Project Battleship
+This is an extended version of the Codecademy exercise Project Battleship
 
 Upgrades include:
 
