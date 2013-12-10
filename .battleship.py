@@ -77,7 +77,7 @@ while play =='y':
                 nl = nl+str(i)+'  '
             else:nl = nl+str(i)+' '
         print '  ',nl
-        # here we print the rows
+        #here we print the rows
         #basically after each list printed, we also print the row number
         p=0
         for row in board:
